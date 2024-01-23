@@ -1,0 +1,9 @@
+node_modules/
+files/*.csv
+files/*.xlsx
+files/*.pdf
+files/*.doc
+files/*.txt
+**/*.log
+.well-known/
+
