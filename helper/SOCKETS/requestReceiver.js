@@ -14,8 +14,8 @@ exports.request = function (io, socket) {
   socket.on("chat", async (data) => {
     try {
       socket.join(data.trackid);
-      token_res = await verifyToken(`${socket.handshake.auth.token}`);
-      //token_res = await verifyToken(`${data.header}`);
+      //token_res = await verifyToken(`${socket.handshake.auth.token}`);
+      token_res = await verifyToken(`${data.header}`);
       let user_id = token_res.data.employee;
       await hrmsDB.query("INSERT INTO tbl_chat (incoming_msg_id, outgoing_msg_id, msg,insert_dt, trxn_id) values(:from_user, :to_user, :message, :insert_dt, :request)", {
         replacements: {
