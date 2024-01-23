@@ -44,6 +44,7 @@ exports.request = function (io, socket) {
     return new Promise((resolve, reject) => {
       jwt.verify(token, process.env.TOKEN_SECRET, (err, decoded) => {
         if (err) {
+		console.log("ERRORSS",err)
           reject(err);
         } else {
           resolve(decoded);
